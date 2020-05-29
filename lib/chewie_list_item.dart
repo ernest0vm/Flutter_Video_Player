@@ -24,13 +24,14 @@ class _ChewieListItemState extends State<ChewieListItem> {
   @override
   void initState() {
     super.initState();
-    _chewieController = ChewieController(
+    _chewieController = new ChewieController(
       videoPlayerController: new VideoPlayerController.network(
         widget.videoUrl,
       ),
       aspectRatio: 16 / 9,
       autoInitialize: true,
       looping: widget.looping,
+
       errorBuilder: (context, errorMessage) {
         return Center(
           child: Text(
@@ -45,7 +46,7 @@ class _ChewieListItemState extends State<ChewieListItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(0),
       child: Chewie(
         controller: _chewieController,
       ),
